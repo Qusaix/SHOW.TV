@@ -16,8 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::namespace('FrontEnd')->group(function(){
 
-    Route::get('/','MainController@index')->name('frontend');
-    Route::get('/rigster','AuthController@rigster')->name('frontend.rigster');
+    Route::get('/','MainController@index')->name('frontend')->middleware('auth');
+    Route::get('/rigster','AuthController@rigster')->name('frontend.rigster')->middleware('CheckLoginPage');
     Route::post('/store','AuthController@store')->name('frontend.storeUser');
+    Route::get('/login','AuthController@login')->name('login')->middleware('CheckLoginPage');
+    Route::post('/login_button','AuthController@login_button')->name('loginbutton');
+    Route::post('/logout','AuthController@logout')->name('logout');
 
 });

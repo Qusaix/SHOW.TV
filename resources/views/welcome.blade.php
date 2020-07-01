@@ -83,7 +83,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="w3l_sign_in_register">
 				<ul>
 					{{-- <li><i class="fa fa-phone" aria-hidden="true"></i> (+000) 123 345 653</li> --}}
-					<li><a href="{{ route('frontend.rigster') }}" data-toggle="modal" >Login</a></li>
+					
+					@auth
+					<form method="POST" action=" {{ route('logout') }} ">
+						@csrf
+						<button type="submit" href="{{ route('login') }}" data-toggle="modal" >Logout</button>
+					</form>
+					
+					@endauth
+					@guest
+					<li><a href="{{ route('login') }}" data-toggle="modal" >Login</a></li>
+					@endguest
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
