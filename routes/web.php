@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::namespace('FrontEnd')->group(function(){
+
+    Route::get('/','MainController@index')->name('frontend');
+    Route::get('/rigster','AuthController@rigster')->name('frontend.rigster');
+    Route::post('/store','AuthController@store')->name('frontend.storeUser');
+
 });

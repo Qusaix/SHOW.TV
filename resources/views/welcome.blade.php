@@ -83,7 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="w3l_sign_in_register">
 				<ul>
 					{{-- <li><i class="fa fa-phone" aria-hidden="true"></i> (+000) 123 345 653</li> --}}
-					<li><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>
+					<li><a href="{{ route('frontend.rigster') }}" data-toggle="modal" >Login</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
@@ -245,7 +245,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 <!-- //nav -->
 <!-- banner -->
-	<div id="slidey" style="display:none;">
+	{{-- <div id="slidey" style="display:none;">
 		<ul>
 			<li><img src="{{ asset('frontEnd/images/5.jpg') }}" alt=" "><p class='title'>Tarzan</p><p class='description'> Tarzan, having acclimated to life in London, is called back to his former home in the jungle to investigate the activities at a mining encampment.</p></li>
 			<li><img src="{{ asset('frontEnd/images/2.jpg') }}" alt=" "><p class='title'>Maximum Ride</p><p class='description'>Six children, genetically cross-bred with avian DNA, take flight around the country to discover their origins. Along the way, their mysterious past is ...</p></li>
@@ -265,7 +265,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				showList: true
 			});
 			$(".slidey-list-description").dotdotdot();
-		</script>
+		</script> --}}
 <!-- //banner -->
 <!-- banner-bottom -->
 	<div class="banner-bottom">
@@ -532,7 +532,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- general -->
 	<div class="general">
-		<h4 class="latest-text w3_latest_text">Featured Movies</h4>
+		<h4 class="latest-text w3_latest_text">LATST EPISODES</h4>
 		<div class="container">
 			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 				<ul id="myTab" class="nav nav-tabs" role="tablist">
@@ -1186,7 +1186,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 <!-- //general -->
 <!-- Latest-tv-series -->
-	<div class="Latest-tv-series">
+	{{-- <div class="Latest-tv-series">
 		<h4 class="latest-text w3_latest_text w3_home_popular">Most Popular Movies</h4>
 		<div class="container">
 			<section class="slider">
@@ -1778,7 +1778,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			  </script>
 			<!-- //flexSlider -->
 		</div>
-	</div>
+	</div> --}}
 	<!-- pop-up-box -->  
 		<script src="{{ asset('frontEnd/js/jquery.magnific-popup.js') }}" type="text/javascript"></script>
 	<!--//pop-up-box -->
