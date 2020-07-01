@@ -21,6 +21,7 @@ class CreateEpisodesTable extends Migration
             $table->string('time');
             $table->string('thumbnail');
             $table->longText('video');
+            $table->bigInteger('series_id')->nullable();
             $table->timestamps();
         });
     }
