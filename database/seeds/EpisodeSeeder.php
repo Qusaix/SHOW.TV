@@ -21,7 +21,7 @@ class EpisodeSeeder extends Seeder
         $ep->duration = "25:00";
         $ep->time = "5:00PM";
         $ep->thumbnail = 'https://pbs.twimg.com/media/EVE67cnXgAAZBvI.jpg';
-        $ep->video = "link";
+        $ep->video = "https://www.youtube.com/embed/zpOULjyy-n8?rel=0";
         $ep->series()->associate($series);
         $ep->save();
 
@@ -32,7 +32,7 @@ class EpisodeSeeder extends Seeder
         $ep2->duration = "25:00";
         $ep2->time = "5:00PM";
         $ep2->thumbnail = 'https://img.roya.tv/imageserv/Size400Q70/images/programs/802/ppJLCdJ5Xz0GSB3IOWlYlXKQNxkVmIxmnqtEsPZZ.jpeg';
-        $ep2->video = "link";
+        $ep2->video = "https://www.youtube.com/embed/zpOULjyy-n8?rel=0";
         $ep2->series()->associate($series);
         $ep2->save();
 
@@ -43,7 +43,7 @@ class EpisodeSeeder extends Seeder
         $ep3->duration = "25:00";
         $ep3->time = "5:00PM";
         $ep3->thumbnail = 'https://img.roya.tv/imageserv/Size1920Q70//programs/stream/promos_thumbnails/zDKJHCgsRrQw3vqPISdEbgAaz6OsdGu46cRqUJgz.jpeg';
-        $ep3->video = "link";
+        $ep3->video = "https://www.youtube.com/embed/zpOULjyy-n8?rel=0";
         $ep3->series()->associate($series);
         $ep3->save();
 
@@ -54,7 +54,7 @@ class EpisodeSeeder extends Seeder
         $ep4->duration = "25:00";
         $ep4->time = "5:00PM";
         $ep4->thumbnail = 'https://i.ytimg.com/vi/cN9mR7gzCfI/maxresdefault.jpg';
-        $ep4->video = "link";
+        $ep4->video = "https://www.youtube.com/embed/zpOULjyy-n8?rel=0";
         $ep4->series()->associate($series);
         $ep4->save();
        

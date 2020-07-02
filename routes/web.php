@@ -23,4 +23,13 @@ Route::namespace('FrontEnd')->group(function(){
     Route::post('/login_button','AuthController@login_button')->name('loginbutton');
     Route::post('/logout','AuthController@logout')->name('logout');
 
+    
+    Route::prefix('episode')->group(function(){
+
+        Route::get('{id}','EpisodeController@index')->name('episode');
+        
+    });
+
+  
+
 });
