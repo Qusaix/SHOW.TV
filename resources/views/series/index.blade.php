@@ -71,8 +71,21 @@
                                         </script>
                                     </li>
                                 </ul> --}}
-                                <button type="button" class="btn btn-info">Like</button>
-                                <button type="button" class="btn btn-info">deslike</button>
+                                <form action="{{ route('reaction') }}" method="POST">
+                                    @csrf
+                                    <h3>Like</h3>
+                                    <input  name="reaction" type="hidden" value="1">
+                                    <input  name="episode" type="hidden" value="{{ $episode->id }}">
+
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
+                                </form>
+                                <form action="{{ route('reaction') }}" method="POST">
+                                    @csrf
+                                    <input  name="reaction" type="hidden" value="0">
+                                    <input  name="episode" type="hidden" value="{{ $episode->id }}">
+                                    <h3>Deslike</h3>
+                                    <button type="submit" class="btn btn-danger"><i class="fa fa-thumbs-down" aria-hidden="true"></i></button>
+                                </form>
                             </div>
                             </div>
                         </div>

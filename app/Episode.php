@@ -10,4 +10,9 @@ class Episode extends Model
     {
         return $this->belongsTo(Series::class);
     }
+
+    public function reactions()
+    {
+        return $this->hasMany(Reactions::class);
+    }
 }

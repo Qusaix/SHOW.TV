@@ -30,6 +30,12 @@ Route::namespace('FrontEnd')->middleware(['auth'])->group(function(){
         
     });
 
+    Route::prefix('reaction')->group(function(){
+
+        Route::post('/','ReactionController@reaction')->name('reaction');
+
+    });
+
   
 
 });
