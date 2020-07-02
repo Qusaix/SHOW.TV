@@ -4,6 +4,7 @@ namespace App\Http\Controllers\FrontEnd;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Episode;
 
 class MainController extends Controller
 {
@@ -11,7 +12,9 @@ class MainController extends Controller
 
     public function index()
     {
-        return view('welcome');
+        $episodes = Episode::get();
+
+        return view('welcome' , compact('episodes'));
     }
 
 }
