@@ -12,15 +12,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/rigster','FrontEnd\AuthController@rigster')->name('frontend.rigster')->middleware('CheckLoginPage');
+Route::post('/store','FrontEnd\AuthController@store')->name('frontend.storeUser');
 
+Route::get('/login','FrontEnd\AuthController@login')->name('login')->middleware('CheckLoginPage');
+Route::post('/login_button','FrontEnd\AuthController@login_button')->name('loginbutton');
 
-Route::namespace('FrontEnd')->group(function(){
+Route::namespace('FrontEnd')->middleware(['auth'])->group(function(){
 
-    Route::get('/','MainController@index')->name('frontend')->middleware('auth');
-    Route::get('/rigster','AuthController@rigster')->name('frontend.rigster')->middleware('CheckLoginPage');
-    Route::post('/store','AuthController@store')->name('frontend.storeUser');
-    Route::get('/login','AuthController@login')->name('login')->middleware('CheckLoginPage');
-    Route::post('/login_button','AuthController@login_button')->name('loginbutton');
+    Route::get('/','MainController@index')->name('frontend');
     Route::post('/logout','AuthController@logout')->name('logout');
 
     
