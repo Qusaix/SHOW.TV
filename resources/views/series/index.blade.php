@@ -27,7 +27,6 @@
                         <div class="embed-responsive embed-responsive-16by9">
                             <iframe class="embed-responsive-item" src="{{ $episode->video }}" allowfullscreen></iframe>
                         </div>
-                          
                         <div class="song-grid-right" style="margin-top: 5%;">
                             <ul class="list-group">
                                 <li class="list-group-item"><i class="fa fa-clock-o" aria-hidden="true" style="font-size: 20px;"></i> Time: {{ $episode->duration }}min</li>
@@ -36,9 +35,9 @@
                               </ul>
                               
                             <div class="share">
-                                <h5>Share this</h5>
+                                <h5>Did you like the Episode</h5>
                                 <div class="single-agile-shar-buttons">
-                                <ul>
+                                {{-- <ul>
                                     <li>
                                         <div class="fb-like" data-href="https://www.facebook.com/w3layouts" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
                                         <script>(function(d, s, id) {
@@ -71,7 +70,9 @@
                                           })();
                                         </script>
                                     </li>
-                                </ul>
+                                </ul> --}}
+                                <button type="button" class="btn btn-info">Like</button>
+                                <button type="button" class="btn btn-info">deslike</button>
                             </div>
                             </div>
                         </div>

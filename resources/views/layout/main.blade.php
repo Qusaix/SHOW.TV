@@ -172,10 +172,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<nav>
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="index.html">Home</a></li>
+							<li class="active"><a href="{{ URL('/') }}">Home</a></li>
 							
-							<li><a href="series.html">tv - series1</a></li>
-							<li><a href="news.html">tv - series2</a></li>
+							<li><a href="series.html">{{ $randomSeries->title }}</a></li>
+							
+							
 						</ul>
 					</nav>
 				</div>
