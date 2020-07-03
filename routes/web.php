@@ -62,4 +62,8 @@ Route::namespace('Dashboard')->prefix('dashboard')->middleware(['auth','role:adm
         Route::get('/','SeriesController@index')->name('dashboard.series');
     });
 
+    Route::prefix('episode')->group(function(){
+        Route::get('/','EpisodesController@index')->name('dashboard.episodes');
+    });
+
 });

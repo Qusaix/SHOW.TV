@@ -51,14 +51,19 @@
                   <i class="mdi mdi-filmstrip menu-icon"></i>
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('dashboard.episodes') }}">
+                  <span class="menu-title">Episodes</span>
+                  <i class="mdi mdi-film menu-icon"></i>
+                </a>
+              </li>
            
           
             <li class="nav-item sidebar-actions">
               <span class="nav-link">
                 <div class="border-bottom">
-                  <h6 class="font-weight-normal mb-3">Projects</h6>
                 </div>
-                <button class="btn btn-block btn-lg btn-gradient-primary mt-4">Main Page</button>
+                <a href="{{ route('frontend') }}" class="btn btn-block btn-lg btn-gradient-primary mt-4">Main Page</a>
                
               </span>
             </li>
