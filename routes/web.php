@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/rigster','FrontEnd\AuthController@rigster')->name('frontend.rigster')->middleware('CheckLoginPage');
+Route::get('/rigster','FrontEnd\AuthController@rigster')->name('frontend.rigster');
 Route::post('/store','FrontEnd\AuthController@store')->name('frontend.storeUser');
 
 Route::get('/login','FrontEnd\AuthController@login')->name('login')->middleware('CheckLoginPage');
@@ -30,10 +30,18 @@ Route::namespace('FrontEnd')->middleware(['auth'])->group(function(){
         
     });
 
+    Route::prefix('series')->group(function(){
+        Route::get('/{id}','SeriesController@index')->name('series');
+    });
+
     Route::prefix('reaction')->group(function(){
 
         Route::post('/','ReactionController@reaction')->name('reaction');
 
+    });
+
+    Route::prefix('follow')->group(function(){
+        Route::post('/follwo_button','FollwoController@follwo_button')->name('follwo_button');
     });
 
   

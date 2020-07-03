@@ -18,6 +18,6 @@ class EpisodeController extends Controller
         $randomSeries = Series::all()->random();
 
 
-        return view('series.index', compact( 'episode' , 'show_episodes' , 'randomSeries' ) );
+        return view('episode.index', compact( 'episode' , 'show_episodes' , 'randomSeries' ) );
     }
 }

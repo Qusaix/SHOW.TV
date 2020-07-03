@@ -10,4 +10,9 @@ class Series extends Model
     {
         return $this->hasMany(Episode::class);
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

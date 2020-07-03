@@ -35,9 +35,114 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- js -->
 <script type="text/javascript" src="{{ asset('frontEnd/js/jquery-2.1.4.min.js') }}"></script>
 <!-- //js -->
+<link rel="stylesheet" href="{{ asset('frontEnd/list-css/list.css') }}" type="text/css" media="all" />
+<script type="text/javascript" src="{{ asset('frontEnd/js/move-top.js') }}"></script>
+<script type="text/javascript" src="{{ asset('frontEnd/js/easing.js') }}"></script>
+
+
 <!-- banner-bottom-plugin -->
 <link href="{{ asset('frontEnd/css/owl.carousel.css') }}" rel="stylesheet" type="text/css" media="all">
 <script src="{{ asset('frontEnd/js/owl.carousel.js') }}"></script>
+<!-- tables -->
+<link rel="stylesheet" type="text/css" href="{{ asset('frontEnd/list-css/table-style.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('frontEnd/list-css/basictable.css') }}" />
+<script type="text/javascript" src="list-js/jquery.basictable.min.js"></script>
+ <script type="text/javascript">
+    $(document).ready(function() {
+      $('#table').basictable();
+
+      $('#table-breakpoint').basictable({
+        breakpoint: 768
+      });
+	   $('#table-breakpoint1').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint2').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint3').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint4').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint5').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint6').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint7').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint8').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint9').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint10').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint11').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint12').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint13').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint14').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint15').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint16').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint17').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint18').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint19').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint20').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint21').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint22').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint23').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint24').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint25').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint26').basictable({
+        breakpoint: 768
+      });
+    });
+  </script>
+  <script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+
 <script>
 	$(document).ready(function() { 
 		$("#owl-demo").owlCarousel({
@@ -173,9 +278,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<nav>
 						<ul class="nav navbar-nav">
 							<li class="active"><a href="{{ URL('/') }}">Home</a></li>
-							
-							<li><a href="series.html">{{ $randomSeries->title }}</a></li>
-							
+							@if($randomSeries->id > 0)
+							<li><a href="{{ route('series',$randomSeries->id) }}">{{ $randomSeries->title }}</a></li>
+							@endif
 							
 						</ul>
 					</nav>

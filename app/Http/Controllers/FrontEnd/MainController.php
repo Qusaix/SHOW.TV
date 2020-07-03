@@ -15,7 +15,16 @@ class MainController extends Controller
     {
         $episodes = Episode::get();
         $series = Series::get();
-        $randomSeries = Series::all()->random();
+        $randomSeries = (object) array(
+            'id' => '0'
+        );
+        $seriesAll = Series::get();
+
+        if($seriesAll->count() > 0)
+        {
+            $randomSeries = Series::all()->random();
+
+        }
 
         return view('welcome' , compact('episodes','series','randomSeries'));
     }

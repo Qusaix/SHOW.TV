@@ -42,4 +42,24 @@ class User extends Authenticatable
     {
         return $this->hasMany(Reactions::class);
     }
+
+    public function series()
+    {
+        return $this->belongsToMany(Series::class);
+    }
+
+    /** METHODS */
+
+    public function check_if_following( $user_series , $chosen_series_id)
+    {
+        foreach($user_series as $series)
+        {
+            if($series->id === $chosen_series_id)
+            {
+               
+                return "1";
+            }
+        }
+        return "0";
+    }
 }
