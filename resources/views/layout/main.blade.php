@@ -162,6 +162,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- start-smoth-scrolling -->
 <script type="text/javascript" src="{{ asset('frontEnd/js/move-top.js') }}"></script>
 <script type="text/javascript" src="{{ asset('frontEnd/js/easing.js') }}"></script>
+<script type="text/javascript" src="{{ asset('frontEnd/js/move-top.js') }}"></script>
+<script type="text/javascript" src="{{ asset('frontEnd/js/easing.js') }}"></script>
+<link rel="stylesheet" href="{{ asset('frontEnd/news-css/news.css') }}" type="text/css" media="all" />
+
+
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
@@ -181,8 +186,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a href="{{ url('/') }}"><h1>One<span>Movies</span></h1></a>
 			</div>
 			<div class="w3_search">
-				<form action="#" method="post">
-					<input type="text" name="Search" placeholder="Search" required="">
+				<form action="{{route('search')}}" method="post">
+					@csrf
+					<input type="text" name="quere" placeholder="Search" required="">
 					<input type="submit" value="Go">
 				</form>
 			</div>
@@ -193,6 +199,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					@auth
 					<form method="POST" action=" {{ route('logout') }} ">
 						@csrf
+						<img src="{{ asset(auth()->user()->image) }}" alt="image" class="avatar-xl img-circle" style="width: 100px;">
+						<h5>Welcome {{ auth()->user()->name }} </h5>
 						<button type="submit" href="{{ route('login') }}" data-toggle="modal" >Logout</button>
 					</form>
 					

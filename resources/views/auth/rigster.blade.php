@@ -29,7 +29,7 @@
             </div>
             <div class="col-md-8 py-5 border">
                 <h4 class="pb-4">Please fill with your details</h4>
-                <form method="POST" action="{{ route('frontend.storeUser') }}">
+                <form method="POST" action="{{ route('frontend.storeUser') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -49,7 +49,7 @@
                         </div>
                         <div class="form-group col-md-12">
                             <div class="custom-file mb-3">
-                                <input type="file" class="custom-file-input" id="customFile" name="filename">
+                                <input type="file" class="custom-file-input" id="customFile" name="image">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                               </div>
                           
