@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 use App\User;
 class UserSeeder extends Seeder
 {
@@ -11,11 +12,15 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        $admin_role = Role::find(1);
+        
         $user = new User;
         $user->name = "admin";
         $user->email = "admin@admin.com";
         $user->password = bcrypt(123456);
         $user->image = "link";
         $user->save();
+        $user->assignRole($admin_role);
+
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Auth\UserStoreRequest;
 use App\Http\Requests\Auth\UserLoginRequest;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 use App\Traits\Helpers;
 use App\User;
 
@@ -25,12 +26,17 @@ class AuthController extends Controller
 
         /** CREATEING USER */
 
+        $normal_user_role = Role::find(2);
+
         $newUser = new User;
         $newUser->email = $request->email;
         $newUser->password = bcrypt($request->password);
         $newUser->name = $request->name;
         $newUser->image = $this->uploadfiles("profileImages",$request->image);
         $newUser->save();
+        $newUser->assignRole($normal_user_role);
+
+
 
         return redirect()->route('frontend');
     }
@@ -47,6 +53,8 @@ class AuthController extends Controller
 
         if(Auth::attempt($credentials))
         {
+            
+
             return redirect()->route('frontend');
         }
         else

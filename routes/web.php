@@ -51,3 +51,15 @@ Route::namespace('FrontEnd')->middleware(['auth'])->group(function(){
   
 
 });
+
+Route::namespace('Dashboard')->prefix('dashboard')->middleware(['auth','role:admin'])->group(function(){
+
+    Route::prefix('users')->group(function(){
+        Route::get('/','UsersController@index')->name('dashboard.users');
+    });
+
+    Route::prefix('series')->group(function(){
+        Route::get('/','SeriesController@index')->name('dashboard.series');
+    });
+
+});
