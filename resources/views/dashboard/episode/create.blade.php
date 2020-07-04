@@ -22,6 +22,13 @@
           
 
             <div class="card-body">
+                @if($errors->any())
+                <div class="alert alert-danger" role="alert">
+                @foreach ($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+               </div>
+                @endif
                 <div class="card-block">
                     <form class="form-horizontal m-t-sm" action="{{ route('dashboard.episodes.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -87,7 +94,7 @@
                             <div class="col-sm-5">
                                 <div class="form-group">
                                     <div class="col-xs-12">
-                                        <label for="mega-lastname">Time</label>
+                                        <label for="mega-lastname">Airing Time</label>
                                           <input name="time" class="form-control" type="datetime-local"  id="example-datetime-local-input">
                                     </div>
                                 </div>

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Traits;
+use Carbon\Carbon;
 use URL;
 
 trait Helpers
@@ -13,4 +14,9 @@ trait Helpers
         
         return URL::to($file.'/'.$name);
     }
+
+    public function createTimeFormat($attr) {        
+        return Carbon::parse($attr)->format('l - h:ia');
+    }
+
 }
