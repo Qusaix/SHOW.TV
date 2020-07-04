@@ -33,17 +33,18 @@
                             <th>Description</th>
                             <th>Duration</th>
                             <th>Time</th>
+                            <th>Actions</th>
                           </tr>
                         </thead>
                         <tbody>
                             @foreach ($episodes as $ep)
                             <tr>
-                                <td>{{ $ep->title }}</td>
+                                <td><a href="{{ route('episode',$ep->id) }}">{{ $ep->title }}</a></td>
                                 <td>{{ $ep->series->title }}</td>
                                 <td>{{ $ep->description }}</td>
                                 <td>{{ $ep->duration }}min</td>
                                 <td>{{ $ep->time }}</td>
-                                <td><label class="badge badge-danger">Pending</label></td>
+                                <td><a href="{{ route('dashboard.episodes.edit',$ep->id) }}" ><i class="mdi mdi-table-edit" style="font-size: 20px"></i></a></td>
 
                               </tr>
                             @endforeach

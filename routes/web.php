@@ -69,6 +69,10 @@ Route::namespace('Dashboard')->prefix('dashboard')->middleware(['auth','role:adm
         // Create 
         Route::get('/create','EpisodesController@create')->name('dashboard.episodes.create');
         Route::post('/store','EpisodesController@store')->name('dashboard.episodes.store');
+
+        // Edit
+        Route::get('/edit/{id}','EpisodesController@edit')->name('dashboard.episodes.edit');
+        Route::post('/update/{id}','EpisodesController@update')->name('dashboard.episodes.update');
     });
 
 });
