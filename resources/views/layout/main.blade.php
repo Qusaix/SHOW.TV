@@ -201,6 +201,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						@csrf
 						<img src="{{ asset(auth()->user()->image) }}" alt="image" class="avatar-xl img-circle" style="width: 100px;">
 						<h5>Welcome {{ auth()->user()->name }} </h5>
+						@role('admin')
+						<a href="{{ route('dashboard.users') }}" class="btn btn-primary" data-toggle="modal" >Dashboard</a>
+						@endrole
+
 						<button type="submit" href="{{ route('login') }}" data-toggle="modal" >Logout</button>
 					</form>
 					

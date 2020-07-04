@@ -22,13 +22,17 @@ class SearchController extends Controller
 
         }
 
-        $user_Input = $request->search;
+        $user_Input = $request->quere;
 
-       $data =  Series::where('title', 'LIKE', '%' .$user_Input. '%') 
+      
+
+           $data =  Series::where('title', 'LIKE', '%' .$user_Input. '%')
             ->orWhereHas('Episode', function($q) use ($user_Input) {
                 return $q->where('title', 'LIKE', '%' . $user_Input . '%');
-            })
-            ->get();
+            })->get();
+
+
+            
 
            
 

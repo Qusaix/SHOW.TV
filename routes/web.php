@@ -17,10 +17,10 @@ Route::post('/store','FrontEnd\AuthController@store')->name('frontend.storeUser'
 
 Route::get('/login','FrontEnd\AuthController@login')->name('login')->middleware('CheckLoginPage');
 Route::post('/login_button','FrontEnd\AuthController@login_button')->name('loginbutton');
+Route::get('/','FrontEnd\MainController@index')->name('frontend');
 
 Route::namespace('FrontEnd')->middleware(['auth'])->group(function(){
 
-    Route::get('/','MainController@index')->name('frontend');
     Route::post('/logout','AuthController@logout')->name('logout');
 
     

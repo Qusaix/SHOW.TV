@@ -13,16 +13,16 @@ class MainController extends Controller
 
     public function index()
     {
-        $episodes = Episode::get();
+        $episodes = Episode::orderBy('created_at', 'desc')->get();
         $series = Series::get();
         $randomSeries = (object) array(
             'id' => '0'
         );
         $seriesAll = Series::get();
 
-        if($seriesAll->count() > 0)
+        if($seriesAll->count() >= 5)
         {
-            $randomSeries = Series::all()->random();
+            $randomSeries = Series::all()->random(5);
 
         }
 

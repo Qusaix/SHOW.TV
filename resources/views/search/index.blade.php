@@ -9,7 +9,7 @@
                 <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
                     <div class="agile-news-table">
                         <div class="w3ls-news-result">
-                            <h4>Episodes : <span>{{ $data->count() }}</span></h4>
+                            <h4>Result : <span>{{ $data->count() }}</span></h4>
                         </div>
                         <table id="table-breakpoint">
                             <thead>
