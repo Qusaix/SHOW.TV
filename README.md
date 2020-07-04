@@ -12,7 +12,7 @@ after doing the environment
 
 if you face any problem uploading videos please go to php.int and incresse upload_max_filesize and post_max_size to higher amout ex.900M
 
-and Thank you for the opportunity
+then restart the apache and Thank you for the opportunity
 
 
 ## Screenshots From The Project
