@@ -64,6 +64,11 @@ Route::namespace('Dashboard')->prefix('dashboard')->middleware(['auth','role:adm
         // Create 
         Route::get('/create','SeriesController@create')->name('dashboard.series.create');
         Route::post('/store','SeriesController@store')->name('dashboard.series.store');
+
+        //Edit
+        Route::get('/edit/{id}','SeriesController@edit')->name('dashboard.series.edit');
+        Route::post('/update/{id}','SeriesController@update')->name('dashboard.series.update');
+
     });
 
     Route::prefix('episode')->group(function(){

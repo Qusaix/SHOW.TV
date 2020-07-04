@@ -35,10 +35,10 @@
                         <tbody>
                             @foreach ($series as $ser)
                             <tr>
-                                <td>{{ $ser->title }}</td>
+                                <td> <a href="{{ route('series',$ser->id) }}" >{{ $ser->title }}</a></td>
                                 <td>{{ $ser->description }}</td>
                                 <td>{{ $ser->time }}</td>
-                                <td><label class="badge badge-danger">Pending</label></td>
+                                <td><a href="{{ route('dashboard.series.edit',$ser->id) }}" ><i class="mdi mdi-table-edit" style="font-size: 20px"></i></a></td>
 
                               </tr>
                             @endforeach
@@ -46,6 +46,7 @@
                          
                         </tbody>
                       </table>
+                      {{$series->links()}}
                 </div>    
               </div>
             </div>

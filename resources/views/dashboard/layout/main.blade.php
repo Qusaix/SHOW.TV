@@ -29,7 +29,7 @@
             <li class="nav-item nav-profile">
               <a href="#" class="nav-link">
                 <div class="nav-profile-image">
-                  <img src="{{ auth()->user()->image }}" alt="profile">
+                  {{-- <img src="{{ auth()->user()->image }}" alt="profile"> --}}
                   <span class="login-status online"></span>
                   <!--change to offline or busy as needed-->
                 </div>
