@@ -52,6 +52,7 @@
                          
                         </tbody>
                       </table>
+                      {{$episodes->links()}}
                 </div>    
               </div>
             </div>

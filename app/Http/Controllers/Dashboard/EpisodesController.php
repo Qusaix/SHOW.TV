@@ -17,7 +17,7 @@ class EpisodesController extends Controller
 
     public function index()
     {
-        $episodes = Episode::get();
+        $episodes = Episode::paginate(10);
 
         return view('dashboard.episode.index',compact('episodes'));
     }

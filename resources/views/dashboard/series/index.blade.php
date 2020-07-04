@@ -18,6 +18,10 @@
           <div class="row">
             <div class="col-lg-12 grid-margin">
               <div class="card">
+                <div class="col-sm">
+                  <a type="button" href="{{ route('dashboard.series.create') }}" class="btn btn-primary float-right mt-5" style="">Add New Series </a>
+
+                </div>
                 <div class="card-body">
                     <table class="table table-hover">
                         <thead>
