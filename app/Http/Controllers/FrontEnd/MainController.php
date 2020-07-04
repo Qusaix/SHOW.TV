@@ -14,7 +14,9 @@ class MainController extends Controller
     public function index()
     {
         /*** Get all the episodes  */
-        $episodes = Episode::orderBy('created_at', 'desc')->get();
+        $episodes = Episode::latest()->get();
+
+       // return $episodes;
 
         /** Show 5 Random Series on the nav bar */
         $randomSeries = Series::inRandomOrder()->select('title','id')->limit(5)->get();

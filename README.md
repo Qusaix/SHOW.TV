@@ -4,7 +4,7 @@
 after doing the environment 
 
 - composer install .
-- php artisn migrate:fresh -seed or php artisan migrate:fresh then php db:seed to get some data from the start.
+- php artisn migrate:fresh --seed or php artisan migrate:fresh then php db:seed to get some data from the start.
 - Admin Account: email:admin@admin.com password:123456.
 
 

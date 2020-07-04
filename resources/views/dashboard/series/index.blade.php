@@ -27,7 +27,7 @@
                         <thead>
                           <tr>
                             <th>Name</th>
-                            <th>Email</th>
+                            <th style="width: 15px;">Description</th>
                             <th>Time</th>
                             <th>Actions</th>
                           </tr>
@@ -36,9 +36,9 @@
                             @foreach ($series as $ser)
                             <tr>
                                 <td> <a href="{{ route('series',$ser->id) }}" >{{ $ser->title }}</a></td>
-                                <td>{{ $ser->description }}</td>
-                                <td>{{ $ser->time }}</td>
-                                <td><a href="{{ route('dashboard.series.edit',$ser->id) }}" ><i class="mdi mdi-table-edit" style="font-size: 20px"></i></a></td>
+                                <td style="font-size: 12px" >{{ $ser->description }}</td>
+                                <td >{{ $ser->time }}</td>
+                                <td><a href="{{ route('dashboard.series.edit',$ser->id) }}" ><i class="mdi mdi-table-edit"></i></a></td>
 
                               </tr>
                             @endforeach

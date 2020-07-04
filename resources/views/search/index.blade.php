@@ -25,7 +25,7 @@
                             @foreach ($data as $element)
                               <tr>
                                 <td>{{ $element->id }}</td>
-                                <td class="w3-list-img" style="width:50%;"><a href="{{ route('episode',$element->id) }}"><img src="{{ $element->thumbnail }}" alt="" /> <span>{{ $element->title }}</span></a></td>
+                                <td class="w3-list-img" style="width:50%;"><a href="{{ route('series',$element->id) }}"><img src="{{ $element->thumbnail }}" alt="" /> <span>{{ $element->title }}</span></a></td>
                                 <td>{{ $element->description }}</td>
                                 <td class="w3-list-info"><a></a>{{ $element->time }}</td>
                                 <td class="w3-list-info"><a href="{{ route('series',$element->id) }}"><i class="fa fa-eye" aria-hidden="true"></td></a></i>
