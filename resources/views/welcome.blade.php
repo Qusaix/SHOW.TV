@@ -9,9 +9,15 @@
 						<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
 							<div class="w3_agile_featured_movies">
 
+								@if($episodes->count() == 0)
+								
+									<h3>No Data Please Run the command "php artisan migrate:refresh --seed" to get the data with the admin account:admin@admin.com pas:123456 or " php artisan db:seed " after migration</h3>
+								
+								@endif
+
 								@foreach ($episodes as $ep)
 								<div class="col-md-3 w3l-movie-gride-agile">
-									<a href="{{ route('episode',$ep->id) }}" class="hvr-shutter-out-horizontal"><img src="{{ $ep->thumbnail }}" style="width:100%; height:50%;" title="album-name" class="img-responsive" alt="{{ $ep->title }}" />
+									<a href="{{ route('episode',$ep->id) }}" class="hvr-shutter-out-horizontal"><img src="{{ $ep->thumbnail }}" style="width:100%; height:50%;" title="{{ $ep->title }}" class="img-responsive" alt="{{ $ep->title }}" />
 										<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 									</a>
 									<div class="mid-1 agileits_w3layouts_mid_1_home">

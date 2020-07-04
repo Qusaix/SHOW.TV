@@ -15,6 +15,7 @@ class SeriesController extends Controller
 
     public function index()
     {
+        /** desplay all series on the dashboard */
         $series = Series::paginate(10);
 
         return view('dashboard.series.index',compact('series'));
@@ -22,11 +23,13 @@ class SeriesController extends Controller
 
     public function create()
     {
+        /** create page */
         return view('dashboard.series.create');
     }
 
     public function store( SeriesStoreRequest $request )
     {
+        /** change the time fromate to save it in the database */
         $time = $request->from."-".$request->to.' @ '.$request->at;
 
         $new_series = new Series;
@@ -42,6 +45,7 @@ class SeriesController extends Controller
 
     public function edit( $id )
     {
+        /** show edit page */
         $series = Series::find( $id );
 
         return view('dashboard.series.edit',compact('series'));
@@ -49,12 +53,14 @@ class SeriesController extends Controller
 
     public function update( SeriesUpdateRequest $request , $id )
     {
+         /** change the time fromate to save it in the database */
         $time = $request->from."-".$request->to.' @ '.$request->at;
 
         $new_series = Series::find( $id );
         $new_series->title = $request->title;
         $new_series->description = $request->description;
 
+        /** if the user chosen to update the time */
         if( $request->updateTime == "1" )
         {
             $new_series->time = $time;

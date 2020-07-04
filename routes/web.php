@@ -19,6 +19,11 @@ Route::get('/login','FrontEnd\AuthController@login')->name('login')->middleware(
 Route::post('/login_button','FrontEnd\AuthController@login_button')->name('loginbutton');
 Route::get('/','FrontEnd\MainController@index')->name('frontend');
 
+Route::prefix('search')->group(function(){
+    Route::post('/','FrontEnd\SearchController@index')->name('search');
+});
+
+
 Route::namespace('FrontEnd')->middleware(['auth'])->group(function(){
 
     Route::post('/logout','AuthController@logout')->name('logout');
@@ -41,12 +46,9 @@ Route::namespace('FrontEnd')->middleware(['auth'])->group(function(){
     });
 
     Route::prefix('follow')->group(function(){
-        Route::post('/follwo_button','FollwoController@follwo_button')->name('follwo_button');
+        Route::post('/follow_button','FollwoController@follwo_button')->name('follow_button');
     });
 
-    Route::prefix('search')->group(function(){
-        Route::post('/','SearchController@index')->name('search');
-    });
 
   
 

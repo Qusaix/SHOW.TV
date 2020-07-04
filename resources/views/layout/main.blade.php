@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>One Movies an Entertainment Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<title>SHOW.TV</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -18,6 +18,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //for-mobile-apps -->
 <link href="{{ asset('frontEnd/css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all" />
 <link href="{{ asset('frontEnd/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 
 <link rel="stylesheet" href="{{ asset('frontEnd/css/contactstyle.css') }}" type="text/css" media="all" />
 <link rel="stylesheet" href="{{ asset('frontEnd/css/faqstyle.css') }}" type="text/css" media="all" />
@@ -165,6 +166,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript" src="{{ asset('frontEnd/js/move-top.js') }}"></script>
 <script type="text/javascript" src="{{ asset('frontEnd/js/easing.js') }}"></script>
 <link rel="stylesheet" href="{{ asset('frontEnd/news-css/news.css') }}" type="text/css" media="all" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 <script type="text/javascript">
@@ -183,7 +185,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="header">
 		<div class="container">
 			<div class="w3layouts_logo">
-				<a href="{{ url('/') }}"><h1>One<span>Movies</span></h1></a>
+				{{-- <a href="{{ url('/') }}"><h1>SOHOW<span>.TV</span></h1></a> --}}
 			</div>
 			<div class="w3_search">
 				<form action="{{route('search')}}" method="post">
@@ -199,7 +201,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					@auth
 					<form method="POST" action=" {{ route('logout') }} ">
 						@csrf
+						@role('user')
 						<img src="{{ asset(auth()->user()->image) }}" alt="image" class="avatar-xl img-circle" style="width: 100px;">
+						@endrole
 						<h5>Welcome {{ auth()->user()->name }} </h5>
 						@role('admin')
 						<a href="{{ route('dashboard.users') }}" class="btn btn-primary" data-toggle="modal" >Dashboard</a>
@@ -290,9 +294,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<nav>
 						<ul class="nav navbar-nav">
 							<li class="active"><a href="{{ URL('/') }}">Home</a></li>
-							@if($randomSeries->id > 0)
-							<li><a href="{{ route('series',$randomSeries->id) }}">{{ $randomSeries->title }}</a></li>
-							@endif
+							@foreach ($randomSeries as $item)
+							<li><a href="{{ route('series',$item->id)}}">{{ $item->title }}</a></li>
+							@endforeach
 							
 						</ul>
 					</nav>

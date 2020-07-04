@@ -11,18 +11,16 @@ class SeriesController extends Controller
 {
     public function index( $id )
     {   
-        $randomSeries = (object) array(
-            'id' => '0'
-        );
-        $seriesAll = Series::get();
+        /** Show 5 Random Series on the nav bar */
+        $randomSeries = Series::inRandomOrder()->select('title','id')->limit(5)->get();
 
-        if($seriesAll->count() > 0)
-        {
-            $randomSeries = Series::all()->random();
-
-        }
+        /** find the chosen series */
         $series = Series::find( $id );
+
+        /** get the series episodes */
         $episodes = $series->episode;
+
+        /** see if the user is following the series */
         $check_user_following = Auth::user()->check_if_following( Auth::user()->series , $series->id);
        
 

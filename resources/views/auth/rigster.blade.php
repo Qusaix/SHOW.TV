@@ -12,7 +12,7 @@
                     <div class="card-body">
                         <img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style="width:30%">
                         <h2 class="py-3">Registration</h2>
-                        <p>Please Add Your Information</p>
+                        <p>Please Enter Your Information</p>
                         @if($errors->any())
                             <div class="alert alert-danger" role="alert">
                             @foreach ($errors->all() as $error)

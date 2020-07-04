@@ -13,20 +13,13 @@ class MainController extends Controller
 
     public function index()
     {
+        /*** Get all the episodes  */
         $episodes = Episode::orderBy('created_at', 'desc')->get();
-        $series = Series::get();
-        $randomSeries = (object) array(
-            'id' => '0'
-        );
-        $seriesAll = Series::get();
 
-        if($seriesAll->count() >= 5)
-        {
-            $randomSeries = Series::all()->random(5);
+        /** Show 5 Random Series on the nav bar */
+        $randomSeries = Series::inRandomOrder()->select('title','id')->limit(5)->get();
 
-        }
-
-        return view('welcome' , compact('episodes','series','randomSeries'));
+        return view('welcome' , compact('episodes','randomSeries'));
     }
 
 }

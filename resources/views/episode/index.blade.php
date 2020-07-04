@@ -38,21 +38,31 @@
                                 <h5>Did you like the Episode</h5>
                                 <div class="single-agile-shar-buttons">
                               
-                                <form action="{{ route('reaction') }}" method="POST">
-                                    @csrf
-                                    <h3>Like</h3>
-                                    <input  name="reaction" type="hidden" value="1">
-                                    <input  name="episode" type="hidden" value="{{ $episode->id }}">
 
-                                    <button type="submit" class="btn btn-success"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
-                                </form>
-                                <form action="{{ route('reaction') }}" method="POST">
-                                    @csrf
-                                    <input  name="reaction" type="hidden" value="0">
-                                    <input  name="episode" type="hidden" value="{{ $episode->id }}">
-                                    <h3>Deslike</h3>
-                                    <button type="submit" class="btn btn-danger"><i class="fa fa-thumbs-down" aria-hidden="true"></i></button>
-                                </form>
+                                    
+
+                                    @if($ep_check_reaction->like == 1)
+                                    
+                                        <button id="like" type="submit" class="btn btn-success"><b>You liked The Episode</b></button>
+
+                                        @else
+
+                                        <button id="like" type="submit" class="btn btn-success"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
+
+
+                                    
+                                    @endif
+
+                                    @if($ep_check_reaction->like == 0)
+
+                                    <button id="dislike" type="submit" class="btn btn-danger">You Disliked The Episode</i></button>
+
+                                    @else
+                                    <button id="dislike" type="submit" class="btn btn-danger"><i class="fa fa-thumbs-down" aria-hidden="true"></i></button>
+
+
+                                    @endif
+                                   
                             </div>
                             </div>
                         </div>
@@ -93,8 +103,81 @@
                     <div class="clearfix"> </div>
                 </div>
                 
+                
+                <script>
+
+
+
+
+
+                $("#like").click(function(e){
+
+                    e.preventDefault();
+
+                    $.ajax({
+                            type:'POST',
+                                headers:{
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    },
+                                url:'{{route('reaction')}}',
+                                data:{
+                                    reaction:1,
+                                    episode:{!! json_encode($episode->id) !!}
+                                    },
+                                success:function(data){
+                                    console.log('success');
+                                },
+                                error:function(error){
+                                    console.log(error);
+                                }
+                        
+                        })
+
+                        $("#like").html("<b>You liked The Episode</b>");
+                        $("#dislike").html("<i class='fa fa-thumbs-down' aria-hidden='true'>"); 
+
+
+                });
+
+
+                $("#dislike").click(function(e){
+                    e.preventDefault();
+
+                    $.ajax({
+                            type:'POST',
+                                headers:{
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    },
+                                url:'{{route('reaction')}}',
+                                data:{
+                                    reaction:0,
+                                    episode:{!! json_encode($episode->id) !!}
+                                    },
+                                success:function(data){
+                                    console.log('success');
+                                },
+                                error:function(error){
+                                    console.log(error);
+                                }
+                        
+                        })
+
+                        $("#dislike").html("<b>You Disliked The Episode</b>");
+                        $("#like").html("<i class='fa fa-thumbs-up' aria-hidden='true'>");     
+
+
+
+                });
+
+                
+
+
+                </script>
                             
                                  
-                    </div>
+            </div>
+
+           
+
 	
 @endsection

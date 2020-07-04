@@ -17,17 +17,26 @@
 	  
 		@if($check_user_following == "1")
 
-		<form method="POST" action="{{ route('follwo_button') }}">
-			@csrf
-			<button type="submit"  class="btn btn-primary">Follow</button>
-		</form>
+		<div class="unfollow">
+			<button class="btn btn-primary">Unfollow</button>
+
+		</div>
+
+		<div class="follow">
+			<button class="btn btn-primary">follow</button>
+
+		</div>
+
+
 
 		@else
+		<div class="follow">
+			<button class="btn btn-primary">follow</button>
+		</div>
+		<div class="unfollow">
+			<button class="btn btn-primary">Unfollow</button>
 
-		<form method="POST" action="{{ route('follwo_button') }}">
-			@csrf
-			<button type="submit"  class="btn btn-primary">Unfollow</button>
-		</form>
+		</div>
 
 		@endif
 
@@ -49,7 +58,6 @@
 									<table id="table-breakpoint">
 										<thead>
 										  <tr>
-											<th>No.</th>
 											<th>Title</th>
 											<th>Description</th>
 											<th>Duration</th>
@@ -60,10 +68,9 @@
 										<tbody>
 										@foreach ($episodes as $ep)
 										  <tr>
-											<td>{{ $ep->id }}</td>
 											<td class="w3-list-img" style="width:50%;"><a href="{{ route('episode',$ep->id) }}"><img src="{{ $ep->thumbnail }}" alt="" /> <span>{{ $ep->title }}</span></a></td>
 											<td>{{ $ep->description }}</td>
-											<td>{{ $ep->duration }}</td>
+											<td>{{ $ep->duration }}min</td>
 											<td class="w3-list-info"><a></a>{{ $ep->time }}</td>
 											<td class="w3-list-info"><a href="{{ route('episode',$ep->id) }}"><i class="fa fa-eye" aria-hidden="true"></td></a></i>
 										  </tr>
@@ -78,6 +85,84 @@
 						</div>
 				</div>
 			</div>
+
+
+			<script>
+				let following = {!! json_encode($check_user_following) !!}
+
+				if( following == "1" )
+				{
+					$(".follow").hide();
+
+				}else{
+					$(".unfollow").hide();
+				}
+
+
+				 $(".follow").click(function(e){
+
+				e.preventDefault();
+
+
+				$.ajax({
+						type:'POST',
+							headers:{
+									'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+								},
+							url:'{{route('follow_button')}}',
+							data:{
+								reaction:1,
+								series_id:{!! json_encode($series->id) !!}
+								},
+							success:function(data){
+								console.log('success');
+							},
+							error:function(error){
+								console.log(error);
+							}
+					
+					})
+
+				//	$(".follow").html("<button class='btn btn-primary unfollow'>Unfollow</button>"); 
+				$(".follow").hide();
+				$(".unfollow").show();
+
+				});
+
+
+			$(".unfollow").click(function(e){
+
+				e.preventDefault();
+
+				$.ajax({
+						type:'POST',
+							headers:{
+									'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+								},
+							url:'{{route('follow_button')}}',
+							data:{
+								reaction:0,
+								series_id:{!! json_encode($series->id) !!}
+								},
+							success:function(data){
+								console.log('success');
+							},
+							error:function(error){
+								console.log(error);
+							}
+					
+					})
+
+					$(".follow").show();
+					$(".unfollow").hide();     
+
+
+
+				});
+
+			</script>	
+
+
 	</div>
 <!-- //faq-banner -->
 @endsection

@@ -7,11 +7,11 @@
     <div class="main-panel">
         <div class="content-wrapper">
           <div class="page-header">
-            <h3 class="page-title"> Users </h3>
+            <h3 class="page-title"> Series </h3>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('dashboard.users')}}">dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Users</li>
+                <li class="breadcrumb-item active" aria-current="page">Series</li>
               </ol>
             </nav>
           </div>

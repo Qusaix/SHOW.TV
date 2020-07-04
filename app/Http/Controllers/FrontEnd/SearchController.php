@@ -11,21 +11,14 @@ class SearchController extends Controller
 {
     public function index( Request $request )
     {
-        $randomSeries = (object) array(
-            'id' => '0'
-        );
-        $seriesAll = Series::get();
+        /** Show 5 Random Series on the nav bar */
+        $randomSeries = Series::inRandomOrder()->select('title','id')->limit(5)->get();
 
-        if($seriesAll->count() > 0)
-        {
-            $randomSeries = Series::all()->random();
-
-        }
-
+        /** get the user input */
         $user_Input = $request->quere;
 
       
-
+            /** search the series and the episods if there is any match */
            $data =  Series::where('title', 'LIKE', '%' .$user_Input. '%')
             ->orWhereHas('Episode', function($q) use ($user_Input) {
                 return $q->where('title', 'LIKE', '%' . $user_Input . '%');

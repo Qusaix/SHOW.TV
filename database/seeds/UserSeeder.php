@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use App\User;
+
 class UserSeeder extends Seeder
 {
     /**
@@ -18,7 +19,7 @@ class UserSeeder extends Seeder
         $user->name = "admin";
         $user->email = "admin@admin.com";
         $user->password = bcrypt(123456);
-        $user->image = "link";
+        $user->image = URL::to('/profileImages/adminImage.png');
         $user->save();
         $user->assignRole($admin_role);
 

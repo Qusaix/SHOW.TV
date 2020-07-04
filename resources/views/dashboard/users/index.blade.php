@@ -23,7 +23,6 @@
                           <tr>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Actions</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -31,7 +30,6 @@
                             <tr>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td><label class="badge badge-danger">Pending</label></td>
 
                               </tr>
                             @endforeach
